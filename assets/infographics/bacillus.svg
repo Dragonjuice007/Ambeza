@@ -1,0 +1,14 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <defs>
+    <radialGradient id="g" cx="0" cy="0" r="1" gradientTransform="translate(60 60) rotate(90) scale(56)">
+      <stop stop-color="#6DD3FF"/>
+      <stop offset="1" stop-color="#0E6BA8"/>
+    </radialGradient>
+  </defs>
+  <circle cx="60" cy="60" r="56" fill="url(#g)" opacity="0.15"/>
+  <circle cx="38" cy="42" r="12" fill="#0E6BA8"/>
+  <circle cx="72" cy="35" r="10" fill="#6DD3FF"/>
+  <circle cx="76" cy="74" r="15" fill="#0A2472"/>
+  <circle cx="42" cy="78" r="10" fill="#4ECB71"/>
+  <path d="M50 47l20 20M48 70l14-8M35 60h16" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+</svg>
