@@ -86,24 +86,24 @@ function Layout() {
         </div>
       </header>
 
-      {/* Mobile full-screen overlay */}
-      <div id="mobile-menu" className={`mobile-overlay ${menuOpen ? 'open' : ''}`} aria-hidden={!menuOpen}>
-        <button className="mobile-close" onClick={() => setMenuOpen(false)} aria-label="Close menu">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
-            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
-          </svg>
-        </button>
-        <nav className="mobile-nav" aria-label="Mobile navigation">
+      {/* Mobile drop-down panel */}
+      <div
+        id="mobile-menu"
+        className={`mobile-overlay ${menuOpen ? 'open' : ''}`}
+        aria-hidden={!menuOpen}
+        onClick={() => setMenuOpen(false)}
+      >
+        <nav className="mobile-nav" aria-label="Mobile navigation" onClick={(e) => e.stopPropagation()}>
           {isHome
-            ? <a href="#pipeline" className="mobile-link" onClick={() => setMenuOpen(false)}>R&amp;D Foundry</a>
-            : <Link to="/" className="mobile-link" onClick={() => setMenuOpen(false)}>R&amp;D Foundry</Link>}
-          <Link to="/strains" className="mobile-link" onClick={() => setMenuOpen(false)}>Strains</Link>
-          <Link to="/blog" className="mobile-link" onClick={() => setMenuOpen(false)}>Blog</Link>
+            ? <a href="#pipeline" className="mobile-link" onClick={() => setMenuOpen(false)}><span className="ml-arrow">→</span>R&amp;D Foundry</a>
+            : <Link to="/" className="mobile-link" onClick={() => setMenuOpen(false)}><span className="ml-arrow">→</span>R&amp;D Foundry</Link>}
+          <Link to="/strains" className="mobile-link" onClick={() => setMenuOpen(false)}><span className="ml-arrow">→</span>Strains</Link>
+          <Link to="/blog" className="mobile-link" onClick={() => setMenuOpen(false)}><span className="ml-arrow">→</span>Blog</Link>
           {isHome
-            ? <a href="#contact" className="mobile-link" onClick={() => setMenuOpen(false)}>Contact</a>
-            : <Link to="/" className="mobile-link" onClick={() => setMenuOpen(false)}>Contact</Link>}
+            ? <a href="#contact" className="mobile-link" onClick={() => setMenuOpen(false)}><span className="ml-arrow">→</span>Contact</a>
+            : <Link to="/" className="mobile-link" onClick={() => setMenuOpen(false)}><span className="ml-arrow">→</span>Contact</Link>}
+          <Link to="/strains" className="btn btn-primary mobile-cta" onClick={() => setMenuOpen(false)}>Request Sample →</Link>
         </nav>
-        <Link to="/strains" className="btn btn-primary mobile-cta" onClick={() => setMenuOpen(false)}>Request Sample →</Link>
         <p className="mobile-tagline">India's Bacillus Research Foundry</p>
       </div>
 
