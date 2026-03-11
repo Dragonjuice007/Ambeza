@@ -1,34 +1,7 @@
-/* ─── Hamburger icon ─── */
-.hamburger {
-  display: block;
-  width: 20px;
-  height: 2px;
-  background: currentColor;
-  border-radius: 2px;
-  transition: background 240ms ease;
-  position: relative;
-}
-.hamburger::before,
-.hamburger::after {
-  content: '';
-  position: absolute;
-  left: 0; right: 0;
-  height: 2px;
-  background: currentColor;
-  border-radius: 2px;
-  transition: transform 240ms ease, top 240ms ease;
-}
-.hamburger::before { top: -6px; }
-.hamburger::after  { top:  6px; }
-.hamburger.open { background: transparent; }
-.hamburger.open::before { top: 0; transform: rotate(45deg); }
-.hamburger.open::after  { top: 0; transform: rotate(-45deg); }
-
-/* ─── Desktop nav link active dot indicator ─── */
-.menu > a:not(.btn) {
-  display: inline-flex;
-  align-items: center;
-}
-.menu > a:not(.btn):focus-visible {
-  border-radius: 6px;
+/* Navigation helpers — kept minimal, main styles in styles.css */
+.mobile-link:focus-visible,
+.nav-link:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 3px;
+  border-radius: 4px;
 }
