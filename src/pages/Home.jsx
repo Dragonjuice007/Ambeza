@@ -7,11 +7,11 @@ const reveal = {
   show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.21, 1, 0.23, 1] } },
 };
 
-const proofStats = [
-  { value: '90%',  label: 'Ammonia Reduction',  sub: 'validated in field trials' },
-  { value: '30%',  label: 'Higher Survival',     sub: 'vs untreated controls' },
-  { value: '5×',   label: 'Faster Breakdown',    sub: 'organic sludge degradation' },
-  { value: '3–7',  label: 'Days to Change',      sub: 'visible water improvement' },
+const trustPillars = [
+  { value: '50+',       label: 'Farms Validated',         sub: 'India & Southeast Asia' },
+  { value: '100%',      label: 'Native Indian Strains',   sub: 'isolated from local wetlands' },
+  { value: 'GMP',       label: 'Certified Facility',      sub: 'batch CoA on every lot' },
+  { value: 'Full',      label: 'Genome Sequenced',        sub: 'every commercial strain' },
 ];
 
 const howItWorks = [
@@ -110,11 +110,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PROOF BAR */}
+      {/* TRUST BAR */}
       <div className="proof-bar">
         <div className="container proof-bar-inner">
-          {proofStats.map((s) => (
-            <div key={s.value} className="proof-item">
+          {trustPillars.map((s) => (
+            <div key={s.label} className="proof-item">
               <strong>{s.value}</strong>
               <span>{s.label}</span>
               <small>{s.sub}</small>
