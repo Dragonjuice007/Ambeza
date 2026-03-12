@@ -341,13 +341,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* TESTIMONIALS — slim */}
-      <section className="section testimonials">
+      {/* TESTIMONIALS — minimal proof strip */}
+      <div className="testimonials-strip">
         <div className="container">
-          <div className="section-head center">
-            <p className="eyebrow">From the Field</p>
-            <h2>What Farm Operators Say</h2>
-          </div>
           <div className="testimonials-grid">
             {testimonials.map((t) => (
               <motion.article key={t.name} variants={reveal} initial="hidden" whileInView="show"
@@ -361,7 +357,7 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
+      </div>
 
       {/* PROTOCOL QUICK REFERENCE */}
       <section className="section protocol-ref">
@@ -418,37 +414,38 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CONTACT */}
-      <section className="section contact" id="contact">
-        <div className="container">
-          <div className="section-head">
-            <p className="eyebrow">Get Started</p>
-            <h2>Request a Sample or Consultation</h2>
-            <p>Share your farm details and our team will recommend the right strain protocol and send samples for trial.</p>
+      {/* CONTACT — compact strip */}
+      <div className="contact-strip" id="contact">
+        <div className="container cs-inner">
+          <div className="cs-copy">
+            <h3>Request a Sample</h3>
+            <p>Our team will reach out within 24 hours with a trial protocol.</p>
           </div>
-          <div className="contact-grid">
-            <form className="contact-form" onSubmit={submitForm} noValidate>
-              <label>Full Name<input type="text" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} placeholder="Your name" /><small>{errors.name}</small></label>
-              <label>Email Address<input type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} placeholder="your@email.com" /><small>{errors.email}</small></label>
-              <label>Phone / WhatsApp<input type="text" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} placeholder="+65 1234 5678" /><small>{errors.phone}</small></label>
-              <label>Farm Details / Message<textarea rows="3" value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} placeholder="Species, pond size, current challenges..." /><small>{errors.message}</small></label>
-              <button className="btn btn-primary magnetic" type="submit">Send Inquiry</button>
-              <p className="ok-msg">{formSuccess}</p>
-            </form>
-            <aside className="contact-card">
-              <h3>Talk to Our Team</h3>
-              <div className="contact-detail"><span>Email</span><span>info@ambeza.com</span></div>
-              <div className="contact-detail"><span>Phone / WhatsApp</span><span>+65 1234 5678</span></div>
-              <div className="contact-detail"><span>Business Hours</span><span>Mon – Fri, 9:00 AM – 6:00 PM SGT</span></div>
-              <div className="download-links">
-                <a href="/downloads/aquakure-brochure.pdf" download>↓ AQUAKURE Brochure (PDF)</a>
-                <a href="/downloads/gutkure-brochure.pdf" download>↓ GUTKURE Brochure (PDF)</a>
-                <a href="/downloads/aquakure-coa-50b.pdf" download>↓ Certificate of Analysis</a>
+          <form className="cs-form" onSubmit={submitForm} noValidate>
+            <div className="cs-fields">
+              <div className="cs-field">
+                <input type="text" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} placeholder="Your name" />
+                {errors.name && <small>{errors.name}</small>}
               </div>
-            </aside>
+              <div className="cs-field">
+                <input type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} placeholder="Email address" />
+                {errors.email && <small>{errors.email}</small>}
+              </div>
+              <div className="cs-field">
+                <input type="text" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} placeholder="Phone / WhatsApp" />
+                {errors.phone && <small>{errors.phone}</small>}
+              </div>
+            </div>
+            <button className="btn btn-primary" type="submit">Send →</button>
+            {formSuccess && <p className="ok-msg cs-ok">{formSuccess}</p>}
+          </form>
+          <div className="cs-contact">
+            <a href="mailto:info@ambeza.com" className="cs-link">info@ambeza.com</a>
+            <a href="tel:+6512345678" className="cs-link">+65 1234 5678</a>
+            <a href="/downloads/aquakure-coa-50b.pdf" download className="cs-link cs-doc">↓ Certificate of Analysis</a>
           </div>
         </div>
-      </section>
+      </div>
     </>
   );
 }
