@@ -41,12 +41,38 @@ const testimonials = [
   { quote: 'Results were measurable by week two. The protocol guidance from Ambeza made implementation straightforward.', name: 'Daniel Koh', role: 'Farm Manager, Singapore' },
 ];
 
+const protocols = [
+  {
+    product: 'AQUAKURE', tag: 'Pond Application', color: 'aquakure',
+    rows: [
+      ['Application', 'Dissolve in pond water, broadcast evenly'],
+      ['Dose', '500g per acre per application'],
+      ['Frequency', 'Bi-weekly or after rain / water exchange'],
+      ['Onset', 'Visible water clarity change in 3–7 days'],
+      ['CFU Guarantee', '25B or 50B CFU/g — batch CoA issued'],
+      ['Shelf Life', '24 months (spore-form stable)'],
+      ['Pack Sizes', '1 kg · 5 kg · 25 kg bags'],
+    ],
+  },
+  {
+    product: 'GUTKURE', tag: 'Feed Supplement', color: 'gutkure',
+    rows: [
+      ['Application', 'Mix directly into feed before each feeding'],
+      ['Dose', '2g per kg of feed'],
+      ['Frequency', 'Every feeding session throughout grow-out'],
+      ['Onset', 'FCR improvement measurable from week 2–3'],
+      ['CFU Guarantee', '1B min. CFU/g guaranteed per lot'],
+      ['Shelf Life', '18 months'],
+      ['Pack Sizes', '500g · 2 kg · 10 kg bags'],
+    ],
+  },
+];
+
 const faqs = [
-  { q: 'Can AQUAKURE and GUTKURE be used together?', a: 'Yes. AQUAKURE conditions pond ecology while GUTKURE supports gut health. Combined use is recommended in most farm programs.' },
-  { q: 'How quickly can we expect changes in water quality?', a: 'Most farms observe visible water and sludge changes within 3–7 days depending on organic load and aeration capacity.' },
-  { q: 'Are these products safe for shrimp and fish?', a: 'Both are Bacillus-based probiotic solutions specifically designed for aquaculture use at recommended dosages.' },
-  { q: 'Can we apply during stress conditions?', a: 'Yes. Probiotics are most effective during stress windows to stabilize microbial balance and support animal resilience.' },
-  { q: 'What documentation is available for procurement?', a: 'We provide Certificates of Analysis (25B and 50B), product labels, and brochures. All available on the Strains page.' },
+  { q: 'Can AQUAKURE and GUTKURE be used together?', a: 'Yes — and it\'s recommended. AQUAKURE conditions pond ecology while GUTKURE supports gut health from inside. Combined use shows the strongest FCR and survival outcomes across our field trials.' },
+  { q: 'How quickly can we expect results in the pond?', a: 'Most farms see visible water clarity and sludge reduction within 3–7 days. Ammonia-N reductions are measurable on water tests from day 5 onwards. FCR improvement with GUTKURE typically shows from week 2–3.' },
+  { q: 'What documentation is available for procurement or regulatory review?', a: 'We supply batch-specific Certificates of Analysis (25B and 50B grades), product labels, SDS sheets, and field trial methodology. Download from the Strains page or contact us directly.' },
+  { q: 'How do I store these products and what is the shelf life?', a: 'Store below 30°C in a cool, dry location away from direct sunlight. AQUAKURE: 24-month shelf life. GUTKURE: 18-month shelf life. Bacillus endospore form ensures stability under standard farm storage.' },
 ];
 
 export default function Home() {
@@ -332,6 +358,37 @@ export default function Home() {
                   <span>{t.role}</span>
                 </footer>
               </motion.article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* PROTOCOL QUICK REFERENCE */}
+      <section className="section protocol-ref">
+        <div className="container">
+          <div className="section-head">
+            <p className="eyebrow">Application Guide</p>
+            <h2>Protocol at a Glance</h2>
+            <p>Dosage, frequency, pack sizes, and guarantees — everything your procurement or technical team needs to specify Ambeza products.</p>
+          </div>
+          <div className="protocol-grid">
+            {protocols.map((p) => (
+              <motion.div key={p.product} variants={reveal} initial="hidden" whileInView="show"
+                viewport={{ once: true }} className={`protocol-card pc-${p.color}`}>
+                <div className="pc-header">
+                  <h3>{p.product}</h3>
+                  <span className="pc-tag">{p.tag}</span>
+                </div>
+                <ul className="pc-table">
+                  {p.rows.map(([label, value]) => (
+                    <li key={label}>
+                      <span>{label}</span>
+                      <strong>{value}</strong>
+                    </li>
+                  ))}
+                </ul>
+                <a href="#contact" className="btn btn-primary pc-cta">Request Sample →</a>
+              </motion.div>
             ))}
           </div>
         </div>

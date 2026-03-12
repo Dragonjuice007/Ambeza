@@ -56,8 +56,8 @@ function Layout() {
             </span>
           </Link>
 
-          {/* Desktop nav — center */}
-          <nav className="nav-links" aria-label="Main navigation">
+            {/* Desktop nav — pill group */}
+          <nav className="nav-pill-group" aria-label="Main navigation">
             {isHome
               ? <a href="#pipeline" className="nav-link">R&amp;D Foundry</a>
               : <Link to="/" className={`nav-link ${active('/')}`}>R&amp;D Foundry</Link>}
@@ -68,21 +68,21 @@ function Layout() {
               : <Link to="/" className="nav-link">Contact</Link>}
           </nav>
 
-          {/* Desktop CTA */}
-          <Link to="/strains" className="nav-cta btn btn-primary">Request Sample</Link>
-
-          {/* Mobile toggle */}
-          <button
-            className={`menu-toggle ${menuOpen ? 'is-open' : ''}`}
-            aria-expanded={menuOpen}
-            aria-controls="mobile-menu"
-            aria-label="Toggle navigation menu"
-            onClick={() => setMenuOpen((v) => !v)}
-          >
-            <span className="hamburger-bar" />
-            <span className="hamburger-bar" />
-            <span className="hamburger-bar" />
-          </button>
+          {/* Right side: CTA + hamburger always grouped together */}
+          <div className="nav-end">
+            <Link to="/strains" className="nav-cta btn btn-primary">Request Sample</Link>
+            <button
+              className={`menu-toggle ${menuOpen ? 'is-open' : ''}`}
+              aria-expanded={menuOpen}
+              aria-controls="mobile-menu"
+              aria-label="Toggle navigation menu"
+              onClick={() => setMenuOpen((v) => !v)}
+            >
+              <span className="hamburger-bar" />
+              <span className="hamburger-bar" />
+              <span className="hamburger-bar" />
+            </button>
+          </div>
         </div>
       </header>
 
