@@ -431,7 +431,7 @@ export default function Home() {
               <label>Full Name<input type="text" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} placeholder="Your name" /><small>{errors.name}</small></label>
               <label>Email Address<input type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} placeholder="your@email.com" /><small>{errors.email}</small></label>
               <label>Phone / WhatsApp<input type="text" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} placeholder="+65 1234 5678" /><small>{errors.phone}</small></label>
-              <label>Farm Details / Message<textarea rows="5" value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} placeholder="Species, pond size, current challenges..." /><small>{errors.message}</small></label>
+              <label>Farm Details / Message<textarea rows="3" value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} placeholder="Species, pond size, current challenges..." /><small>{errors.message}</small></label>
               <button className="btn btn-primary magnetic" type="submit">Send Inquiry</button>
               <p className="ok-msg">{formSuccess}</p>
             </form>
